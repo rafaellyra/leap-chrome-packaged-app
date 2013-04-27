@@ -17,6 +17,10 @@
     var timeBegan = 0;
     var timeElapsed = 0;
     
+    var xEdge = 200;
+    var zEdge = 250;
+    var yEdge = 470;
+    
     var tapBegan = false;
     var pushing = false;
     var swiping = false;
@@ -63,7 +67,7 @@
           }
           
           //Create and open the socket
-          ws = new WebSocket("ws://25.158.226.23:6437/");
+          ws = new WebSocket("ws://127.0.0.1:6437/");
           
           // On successful connection
           ws.onopen = function(event) {
@@ -200,7 +204,7 @@
                          if(grabbing.history[i]) grabbed = true; 
                      }
                      
-                     if(!grabbing[key].palmOpen && (grabbed || grabbing[key].grabbing)) {
+                     if(!grabbing[key].palmOpen && (grabbed || grabbing[key].grabbing) && (Math.abs(hand.palmPosition[0]) < xEdge && hand.palmPosition[2] < zEdge && hand.palmPosition[1] < yEdge)) {
                          grabbing[key].grabbing = true; 
                          events.onGrab(hand);
                      }

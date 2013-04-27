@@ -1,2 +1,0 @@
-leap-chrome-packaged-app
-========================
