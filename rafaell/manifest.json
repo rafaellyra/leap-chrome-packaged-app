@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "My new Chrome App",
+  "version": "1",
+  "permissions":["<all_urls>"],
+  "app": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  },
+  "minimum_chrome_version": "20"
+}
